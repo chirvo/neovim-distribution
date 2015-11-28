@@ -165,10 +165,6 @@ if has("autocmd") && exists("+omnifunc")
     autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 endif
 
-hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
-hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
-
 " Some convenient mappings
 "inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 "inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
@@ -188,9 +184,6 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 vmap <C-M-l> mzgg=G`z<ESC>
 imap <C-M-l> <ESC>mzgg=G`z<ESC><I>
-"http://esa-matti.suuronen.org/blog/2011/11/28/how-to-write-coffeescript-efficiently/
-vmap <leader>co <esc>:'<,'>:CoffeeCompile<CR>
-map <leader>co :CoffeeCompile<CR>
 
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
 " Restore cursor to file position in previous editing session
