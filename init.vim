@@ -171,11 +171,11 @@ hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=da
 
 " Some convenient mappings
 "inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
-inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+"inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
+"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+"inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+"inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
 " Automatically open and close the popup menu / preview window
 autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
