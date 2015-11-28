@@ -72,11 +72,15 @@ Here's a quick list of the plugins I've been using in this distribution:
 - tpope/vim-surround
 
 # About the colorscheme
-As you can see, I didn't add the myriad of colorschemes available. The
-reason for this is, since the colorscheme is a personal choice, I
-thought it will be better for every user to install the one of their
-choice.
 
-I, however, added a default colorscheme. It is "a mix between SPF-13's
-solarized and railscast. You can see the implementation in
+The default colorscheme is a mix between SPF-13's solarized and
+railscast.
+
+As you can see, I didn't add the myriad of colorschemes available
+elsewehere. The reason for this is, since the colorscheme is
+more of a personal choice, I thought it will be better for every
+user to install the one they like the most.
+
+You can see the implementation of the current color scheme in
 config/colors.vim.
+
