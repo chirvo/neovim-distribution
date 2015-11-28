@@ -167,7 +167,7 @@ endif
 
 " Some convenient mappings
 "inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-"inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
+"inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 "inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 "inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 "inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
