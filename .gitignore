@@ -1,0 +1,7 @@
+*~
+autoload
+backup/**
+swap/**
+undo/**
+view/**
+plugged/**
