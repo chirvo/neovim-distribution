@@ -6,14 +6,15 @@ function! BuildYCM(info)
   " - name:   name of the plugin
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.sh --clang-completer
+  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+    !./install.sh --clang-completer --tern-completer
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
+Plug 'ervandew/supertab'
 
 " Javascript
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
