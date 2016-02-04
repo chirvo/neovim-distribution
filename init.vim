@@ -223,6 +223,10 @@ autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l
 
 let g:tagbar_autofocus=1
 
+" Autoinsert on terminal buffers
+autocmd BufEnter,BufWinEnter,WinEnter term://* startinsert
+autocmd BufLeave,BufWinLeave,WinLeave term://* stopinsert
+
 " Plugins configuration
 call plug#begin('~/.config/nvim/plugged')
 runtime config/plug.vim           " default plugins
