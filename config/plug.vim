@@ -15,6 +15,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
+Plug 'garbas/vim-snipmate'
 
 " Javascript
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
