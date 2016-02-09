@@ -26,6 +26,7 @@ Here's a quick list of the plugins I've been using in this distribution:
 - mxw/vim-jsx
 - isRuslan/vim-es6
 - othree/yajs.vim
+- grvcoelho/vim-javascript-snippets
 
 ## CoffeeScript
 - kchmck/vim-coffee-script

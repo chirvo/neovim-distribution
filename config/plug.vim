@@ -22,6 +22,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'isRuslan/vim-es6', { 'for': 'javascript' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }
 
 " CoffeeScript
 "function! InstallCoffeeTags(info)
