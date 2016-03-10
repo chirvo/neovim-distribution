@@ -10,14 +10,13 @@ function! BuildYCM(info)
     !./install.sh --clang-completer --tern-completer
   endif
 endfunction
+Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
-Plug 'ervandew/supertab'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
 
 " Javascript
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
@@ -28,12 +27,6 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }
 
 " CoffeeScript
-"function! InstallCoffeeTags(info)
-  "if a:info.status == 'installed' || a:info.force
-    "!gem install CoffeeTags
-  "endif
-"endfunction
-"Plug 'lukaszkorecki/CoffeeTags', { 'do': function('InstallCoffeeTags') }
 Plug 'kchmck/vim-coffee-script'
 
 " CSS/SCSS/Stylus

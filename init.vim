@@ -1,8 +1,17 @@
-" Load vim-plug
+" Install vim-plug if it is not installed
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
   execute '!curl --create-dirs -fLo ~/.config/nvim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
+" Load plugins
+call plug#begin('~/.config/nvim/plugged')
+runtime config/plug.vim           " default plugins
+if filereadable('~/.config/nvim/config/custom.plug.vim')
+  runtime config/custom.plug.vim           " custom user plugins
+endif
+call plug#end()
 
+
+" Change leader
 let mapleader = ','
 let maplocalleader = '_'
 
@@ -62,7 +71,7 @@ set nowrap                      " Do not wrap long lines
 set autoindent                  " Indent at the same level of the previous line
 set expandtab                   " Tabs are spaces, not tabs
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-"set matchpairs+=<:>             " Match, to be used with %
+set matchpairs+=<:>             " Match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 
@@ -70,7 +79,7 @@ if has('cmdline_info')
   set ruler                   " Show the ruler
   set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
   set showcmd                 " Show partial commands in status line and
-                              " Selected characters/lines in visual mode
+  " Selected characters/lines in visual mode
 endif
 
 if has('statusline')
@@ -86,7 +95,7 @@ endif
 
 highlight clear SignColumn  " SignColumn should match background
 highlight clear LineNr      " Current line number row will have same background color in relative mode
-" Fix the terrible dictionary highlight of console vim
+"Fix the vim's awful dictionary highlight on console
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight clear SpellCap
@@ -161,8 +170,26 @@ map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
 " OmniComplete
-if has("autocmd") && exists("+omnifunc")
-    autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd Filetype * if &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
+
+" Haskell post write lint and check with ghcmod
+" $ `cabal install ghcmod` if missing and ensure
+" ~/.cabal/bin is in your $PATH.
+if !executable("ghcmod")
+  autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+endif
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
 endif
 
 " Some convenient mappings
@@ -177,11 +204,12 @@ endif
 autocmd CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menu,preview,longest
 
-" Ctrl+C/V/X and autoformat
+" Ctrl+C/V/X
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
+" C-M-l for autoformat
 vmap <C-M-l> mzgg=G`z<ESC>
 imap <C-M-l> <ESC>mzgg=G`z<ESC><I>
 
@@ -190,7 +218,7 @@ imap <C-M-l> <ESC>mzgg=G`z<ESC><I>
 function! ResCur()
   if line("'\"") <= line("$")
     silent! normal! g`"
-      return 1
+    return 1
   endif
 endfunction
 augroup resCur
@@ -209,7 +237,7 @@ function! StripTrailingWhitespace()
   let @/=_s
   call cursor(l, c)
 endfunction
-autocmd FileType c,cpp,java,go,php,javascript,coffee,jade,stylus,css,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType c,cpp,java,go,php,javascript,javascript.jsx,coffee,jade,stylus,css,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 " Always switch to the current file directory
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 " Set cursor to the first line when editing a git commit message
@@ -218,25 +246,18 @@ autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1
 autocmd BufNewFile,BufRead,BufReadPost *.coffee set filetype=coffee
 autocmd BufNewFile,BufRead,BufReadPost *.jade set filetype=jade
 autocmd BufNewFile,BufRead,BufReadPost *.styl set filetype=stylus
+autocmd BufNewFile,BufRead,BufReadPost *.jsx set filetype=javascript.jsx
 " The following line makes vim ignore camelCase and CamelCase words so they are not highlighted as spelling mistakes
 autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l\l*\)\%(\u\l*\)\{1,}\>" transparent containedin=.*Comment.*,.*String.*,VimwikiLink contains=@NoSpell contained
 
-let g:tagbar_autofocus=1
-
-" Autoinsert on terminal buffers
+" Autoinsert on terminal emulation buffers
 autocmd BufEnter,BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave,BufWinLeave,WinLeave term://* stopinsert
 
-" Plugins configuration
-call plug#begin('~/.config/nvim/plugged')
-runtime config/plug.vim           " default plugins
-runtime! config/plugins/*.load    " load all the available plugins in the plugins/ directory
-call plug#end()
-runtime! config/plugins/*.conf    " load all the available plugins in the plugins/ directory
-
 " Setting default colors
 runtime config/colors.vim
-
-if filereadable('~/.config/nvim/config/user.vim')
-  runtime config/user.vim         " user tuneups
+" Plugins configuration
+runtime! config/plugins/*.conf.vim    " load all the available plugins in the plugins/ directory
+if filereadable('~/.config/nvim/config/custom.init.vim')
+  runtime config/custom.init.vim         " custom user configuration
 endif
