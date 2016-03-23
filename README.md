@@ -3,7 +3,7 @@ Neovim distribution with some stuff borrowed from SFP-13 and many other .vimrc f
 
 # Installation
 
-- git clone https://github.com/bigchirv/neovim-distribution.git .config/nvim
+- git clone https://github.com/bigchirv/neovim-distribution.git ~/.config/nvim
 - nvim +q
 - nvim +PlugInstall +qa
 
