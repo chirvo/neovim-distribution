@@ -1,12 +1,15 @@
 " Install vim-plug if it is not installed
-if empty(glob("~/.config/nvim/autoload/plug.vim"))
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   execute '!curl --create-dirs -fLo ~/.config/nvim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
-" Load plugins
+
+""" Load plugins
 call plug#begin('~/.config/nvim/plugged')
-runtime config/plug.vim           " default plugins
-if filereadable('~/.config/nvim/config/custom.plug.vim')
-  runtime config/custom.plug.vim           " custom user plugins
+" default plugins
+runtime config/plug.vim
+" custom user plugins
+if !empty(glob('~/.config/nvim/config/custom.plug.vim'))
+  runtime config/custom.plug.vim
 endif
 call plug#end()
 
@@ -73,7 +76,7 @@ set expandtab                   " Tabs are spaces, not tabs
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 set matchpairs+=<:>             " Match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
+set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 
 if has('cmdline_info')
   set ruler                   " Show the ruler
@@ -247,7 +250,8 @@ autocmd BufNewFile,BufRead,BufReadPost *.coffee set filetype=coffee
 autocmd BufNewFile,BufRead,BufReadPost *.jade set filetype=jade
 autocmd BufNewFile,BufRead,BufReadPost *.styl set filetype=stylus
 autocmd BufNewFile,BufRead,BufReadPost *.jsx set filetype=javascript.jsx
-" The following line makes vim ignore camelCase and CamelCase words so they are not highlighted as spelling mistakes
+" This ignores camelCase and CamelCase words
+" so they are not highlighted as spelling mistakes
 autocmd Syntax * syn match CamelCase "\(\<\|_\)\%(\u\l*\)\{2,}\(\>\|_\)\|\<\%(\l\l*\)\%(\u\l*\)\{1,}\>" transparent containedin=.*Comment.*,.*String.*,VimwikiLink contains=@NoSpell contained
 
 " Autoinsert on terminal emulation buffers
@@ -256,8 +260,12 @@ autocmd BufLeave,BufWinLeave,WinLeave term://* stopinsert
 
 " Setting default colors
 runtime config/colors.vim
-" Plugins configuration
-runtime! config/plugins/*.conf.vim    " load all the available plugins in the plugins/ directory
-if filereadable('~/.config/nvim/config/custom.init.vim')
-  runtime config/custom.init.vim         " custom user configuration
+
+""" Plugins configuration
+" load all the available plugins in the plugins/ directory
+runtime! config/plugins/*.conf.vim
+
+if !empty(glob('~/.config/nvim/config/custom.init.vim'))
+" custom user configuration
+  runtime config/custom.init.vim
 endif

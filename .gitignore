@@ -5,3 +5,5 @@ swap/**
 undo/**
 view/**
 plugged/**
+config/custom.plug.vim
+config/custom.init.vim

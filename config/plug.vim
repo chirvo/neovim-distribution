@@ -10,8 +10,9 @@ function! BuildYCM(info)
     !./install.sh --clang-completer --tern-completer
   endif
 endfunction
-Plug 'ervandew/supertab'
+
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
@@ -27,12 +28,12 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }
 
 " CoffeeScript
-Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 " CSS/SCSS/Stylus
-Plug 'hail2u/vim-css3-syntax'
-Plug 'JulesWang/css.vim'
-Plug 'skammer/vim-css-color'
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+Plug 'JulesWang/css.vim', { 'for': 'css' }
+Plug 'skammer/vim-css-color', { 'for': 'css' }
 Plug 'wavded/vim-stylus', { 'for': 'stylus' }
 
 " Jade
