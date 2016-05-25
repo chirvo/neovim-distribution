@@ -1,6 +1,7 @@
 " Enables HTML/CSS syntax highlighting in your JavaScript file.
 " Default Value: 0
 "javascript_enable_domhtmlcss=0
+let javascript_enable_domhtmlcss=1
 
 " Enables JavaScript code folding.
 " Default Value: 1
