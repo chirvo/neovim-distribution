@@ -46,27 +46,25 @@ Plug 'ekalinin/Dockerfile.vim', { 'for': 'docker' }
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
 
-" UI
+" UI and IDE-like plugins
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
-Plug 'Yggdroot/indentLine'
-
-" Other IDE-like functions
 Plug 'editorconfig/editorconfig-vim'
+Plug 'edsono/vim-matchit'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ktonga/vim-follow-my-lead'
+Plug 'lfilho/cosco.vim'
+Plug 'luochen1990/rainbow'
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'wesQ3/vim-windowswap'
-Plug 'junegunn/vim-easy-align'
-Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'ktonga/vim-follow-my-lead'
-Plug 'majutsushi/tagbar'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'edsono/vim-matchit'
-Plug 'luochen1990/rainbow'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
 Plug 'tpope/vim-surround'
-Plug 'lfilho/cosco.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'wesQ3/vim-windowswap'
+Plug 'Yggdroot/indentLine'
