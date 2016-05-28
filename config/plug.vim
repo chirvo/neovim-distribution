@@ -20,12 +20,13 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
 " Javascript
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
-Plug 'isRuslan/vim-es6', { 'for': 'javascript' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'grvcoelho/vim-javascript-snippets', { 'for': 'javascript' }
+Plug 'isRuslan/vim-es6', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 
 " CoffeeScript
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
