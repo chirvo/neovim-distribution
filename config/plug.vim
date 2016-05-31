@@ -7,7 +7,7 @@ function! BuildYCM(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    !./install.sh --clang-completer --tern-completer
+    !./install.py --clang-completer --tern-completer
   endif
 endfunction
 
@@ -27,6 +27,9 @@ Plug 'isRuslan/vim-es6', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
+
+" JSON
+Plug 'elzr/vim-json', { 'for': 'json' }
 
 " CoffeeScript
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
