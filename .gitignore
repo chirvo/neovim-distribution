@@ -5,5 +5,7 @@ swap/**
 undo/**
 view/**
 plugged/**
+UltiSnips
 config/custom.plug.vim
 config/custom.init.vim
+config/custom.keybindings.vim
