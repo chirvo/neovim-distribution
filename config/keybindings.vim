@@ -60,14 +60,6 @@ vnoremap . :normal .<CR>
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 
-" Some helpers to edit mode
-" http://vimcasts.org/e/14
-cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-
 " Ctrl+C/V/X
 vmap <C-c> "+yi
 vmap <C-x> "+c
@@ -80,77 +72,77 @@ imap <C-M-l> <ESC>mzgg=G`z<ESC><I>
 " Basic surround support
 " From https://github.com/wilmoore/dotfiles/blob/master/active/.vim/vimrc.d/keybindings.vim
 " example.com => "example.com"
-:no <leader><leader>" gEwi"<esc>Ea"<esc>B
-:no <leader>" gEwi"<esc>ea"<esc>B
-:vn <leader>" "1c"<esc>"1pa"<esc>B
+noremap <leader><leader>" gEwi"<esc>Ea"<esc>B
+noremap <leader>" gEwi"<esc>ea"<esc>B
+vnoremap <leader>" "1c"<esc>"1pa"<esc>B
 
 " example.com => 'example.com'
-:no <leader><leader>' gEwi'<esc>Ea'<esc>B
-:no <leader>' gEwi'<esc>ea'<esc>B
-:vn <leader>' "1c'<esc>"1pa'<esc>B
+noremap <leader><leader>' gEwi'<esc>Ea'<esc>B
+noremap <leader>' gEwi'<esc>ea'<esc>B
+vnoremap <leader>' "1c'<esc>"1pa'<esc>B
 
 " example.com => `example.com`
-:no <leader><leader>` gEwi`<esc>Ea`<esc>B
-:no <leader>` gEwi`<esc>ea`<esc>B
-:vn <leader>` "1c`<esc>"1pa`<esc>B
+noremap <leader><leader>` gEwi`<esc>Ea`<esc>B
+noremap <leader>` gEwi`<esc>ea`<esc>B
+vnoremap <leader>` "1c`<esc>"1pa`<esc>B
 
 " example.com => *example.com*
-:no <leader><leader>* gEwi*<esc>Ea*<esc>B
-:no <leader>* gEwi*<esc>ea*<esc>B
-:vn <leader>* "1c*<esc>"1pa*<esc>B
+noremap <leader><leader>* gEwi*<esc>Ea*<esc>B
+noremap <leader>* gEwi*<esc>ea*<esc>B
+vnoremap <leader>* "1c*<esc>"1pa*<esc>B
 
 " example.com => **example.com**
-:no <leader><leader>** gEwi**<esc>Ea**<esc>B
-:no <leader>** gEwi**<esc>ea**<esc>B
-:vn <leader>** "1c**<esc>"1pa**<esc>B
+noremap <leader><leader>** gEwi**<esc>Ea**<esc>B
+noremap <leader>** gEwi**<esc>ea**<esc>B
+vnoremap <leader>** "1c**<esc>"1pa**<esc>B
 
 " example.com => _example.com_
-:no <leader><leader>_ gEwi_<esc>Ea_<esc>B
-:no <leader>_ gEwi_<esc>ea_<esc>B
-:vn <leader>_ "1c_<esc>"1pa_<esc>B
+noremap <leader><leader>_ gEwi_<esc>Ea_<esc>B
+noremap <leader>_ gEwi_<esc>ea_<esc>B
+vnoremap <leader>_ "1c_<esc>"1pa_<esc>B
 
 " example.com => {example.com}
-:no <leader><leader>{ gEwi{<esc>Ea}<esc>B
-:no <leader>{ gEwi{<esc>ea}<esc>B
-:vn <leader>{ "1c{<esc>"1pa}<esc>B
+noremap <leader><leader>{ gEwi{<esc>Ea}<esc>B
+noremap <leader>{ gEwi{<esc>ea}<esc>B
+vnoremap <leader>{ "1c{<esc>"1pa}<esc>B
 
-:no <leader><leader>} gEwi{<esc>Ea}<esc>B
-:no <leader>} gEwi{<esc>ea}<esc>B
-:vn <leader>} "1c{<esc>"1pa}<esc>B
+noremap <leader><leader>} gEwi{<esc>Ea}<esc>B
+noremap <leader>} gEwi{<esc>ea}<esc>B
+vnoremap <leader>} "1c{<esc>"1pa}<esc>B
 
 " example.com => example.com
-:no <leader><leader>[ gEwi[<esc>Ea]<esc>B
-:no <leader>[ gEwi[<esc>ea]<esc>B
-:vn <leader>[ "1c[<esc>"1pa]<esc>B
+noremap <leader><leader>[ gEwi[<esc>Ea]<esc>B
+noremap <leader>[ gEwi[<esc>ea]<esc>B
+vnoremap <leader>[ "1c[<esc>"1pa]<esc>B
 
-:no <leader><leader>] gEwi[<esc>Ea]<esc>B
-:no <leader>] gEwi[<esc>ea]<esc>B
-:vn <leader>] "1c[<esc>"1pa]<esc>B
+noremap <leader><leader>] gEwi[<esc>Ea]<esc>B
+noremap <leader>] gEwi[<esc>ea]<esc>B
+vnoremap <leader>] "1c[<esc>"1pa]<esc>B
 
 " 3+3 => #{3+3}
 " user.name => #{user.name}
 " user_name => #{user_name}
-:no <leader><leader># gEwi#{<esc>Ea}<esc>B
-:no <leader># gEwi#{<esc>ea}<esc>B
+noremap <leader><leader># gEwi#{<esc>Ea}<esc>B
+noremap <leader># gEwi#{<esc>ea}<esc>B
 " 3 + 3 => #{3 + 3}
-:vn <leader># "1c#{<esc>"1pa}<esc>B
+vnoremap <leader># "1c#{<esc>"1pa}<esc>B
 
 " example.com => (example.com)
-:no <leader><leader>( gEwi(<esc>Ea)<esc>B
-:no <leader>( gEwi(<esc>ea)<esc>B
-:vn <leader>( "1c(<esc>"1pa)<esc>B
+noremap <leader><leader>( gEwi(<esc>Ea)<esc>B
+noremap <leader>( gEwi(<esc>ea)<esc>B
+vnoremap <leader>( "1c(<esc>"1pa)<esc>B
 
-:no <leader><leader>) gEwi(<esc>Ea)<esc>B
-:no <leader>) gEwi(<esc>ea)<esc>B
-:vn <leader>) "1c(<esc>"1pa)<esc>B
+noremap <leader><leader>) gEwi(<esc>Ea)<esc>B
+noremap <leader>) gEwi(<esc>ea)<esc>B
+vnoremap <leader>) "1c(<esc>"1pa)<esc>B
 
 " example.com => <example.com>
-:no <leader><leader>< gEwi<<esc>Ea><esc>B
-:no <leader>< gEwi<<esc>ea><esc>B
-:vn <leader>< "1c<<esc>"1pa><esc>B
+noremap <leader><leader>< gEwi<<esc>Ea><esc>B
+noremap <leader>< gEwi<<esc>ea><esc>B
+vnoremap <leader>< "1c<<esc>"1pa><esc>B
 
-:no <leader><leader>> gEwi<<esc>Ea><esc>B
-:no <leader>> gEwi<<esc>ea><esc>B
-:vn <leader>> "1c<<esc>"1pa><esc>B
+noremap <leader><leader>> gEwi<<esc>Ea><esc>B
+noremap <leader>> gEwi<<esc>ea><esc>B
+vnoremap <leader>> "1c<<esc>"1pa><esc>B
 
 
