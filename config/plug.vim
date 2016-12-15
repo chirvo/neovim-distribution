@@ -27,7 +27,7 @@ Plug 'isRuslan/vim-es6', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
-
+Plug 'jparise/vim-graphql', { 'for': 'javascript' }
 " JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
 
@@ -53,7 +53,7 @@ Plug 'nelstrom/vim-markdown-folding', {'for': 'markdown'}
 " UI and IDE-like plugins
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'edsono/vim-matchit'
+Plug 'r901042004/matchit.zip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'ctrlpvim/ctrlp.vim'
